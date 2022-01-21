@@ -17,7 +17,10 @@
     //  * Replace ${localWorkspaceFolderBasename} with the name of your smart contract project
     "name": "${localWorkspaceFolderBasename}",
     "workspaceMount": "type=volume,src=${localWorkspaceFolderBasename},dst=/root/system-epn",
-    "mounts": ["source=${localWorkspaceFolder}/artifacts,target=/root/system-epn/build/artifacts,type=bind"],
+    "mounts": [
+        "type=bind,source=${localWorkspaceFolder}/artifacts,target=/root/system-epn/build/artifacts",
+        "type=volume,source=epn-eos-install,target=/root/eos/",
+        ],
     "dockerFile": "./Dockerfile",
     "workspaceFolder": "/root/system-epn",
 
